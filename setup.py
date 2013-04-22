@@ -7,7 +7,7 @@ def read(*rnames):
 
 version = '0.1.0'
 
-setup(name='firebaseplonedemo',
+setup(name='plone_interact',
       version=version,
       description="",
       long_description="",
@@ -18,9 +18,9 @@ setup(name='firebaseplonedemo',
           "License :: OSI Approved :: GNU General Public License (GPL)",
           "Operating System :: OS Independent",
           "Programming Language :: Python",
-        ],
-      keywords='plone portlet',
-      author='Plone Foundation',
+      ],
+      keywords='plone',
+      author='Balazs Ree',
       author_email='plone-developers@lists.sourceforge.net',
       url='',
       license='',
@@ -29,9 +29,9 @@ setup(name='firebaseplonedemo',
       include_package_data=True,
       zip_safe=False,
       extras_require=dict(
-        test=[
-            'Products.PloneTestCase',
-        ]
+          test=[
+              'Products.PloneTestCase',
+          ]
       ),
       install_requires=[
           'setuptools',

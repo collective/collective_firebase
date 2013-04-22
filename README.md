@@ -1,4 +1,4 @@
 
-# FireBase PloneDemo #
+# plone_interact #
 
 XXX

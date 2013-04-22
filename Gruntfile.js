@@ -9,7 +9,7 @@ module.exports = function(grunt) {
     copy: {
       'default': {
         files: {
-          'src/firebaseplonedemo/firebaseplonedemo/static/dist/': [
+          'firebaseplonedemo/static/dist/': [
             collect.bower('angular').path('angular.js')
           ]
         }

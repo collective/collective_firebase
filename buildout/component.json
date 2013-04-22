@@ -1,7 +1,0 @@
-{
-    "name": "firebase-plonedemo-buildout",
-    "version": "0.1.0",
-    "dependencies": {
-        "firebase-plonedemo-resources": "src/firebaseplonedemo/"
-    }
-}

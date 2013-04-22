@@ -1,5 +1,5 @@
 {
-    "name": "firebug-plonedemo-resources",
+    "name": "plone_interact-resources",
     "version": "0.1.0",
     "devDependencies": {
         "yo": "*",
