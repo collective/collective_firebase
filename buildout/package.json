@@ -1,5 +1,5 @@
 {
-    "name": "firebug-plonedemo-resources",
+    "name": "firebug-plonedemo-buildout",
     "version": "0.1.0",
     "devDependencies": {
         "yo": "*",
