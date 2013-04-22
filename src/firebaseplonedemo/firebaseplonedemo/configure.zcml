@@ -1,0 +1,51 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="plone">
+
+    <five:registerPackage package="." />
+    
+    <genericsetup:registerProfile
+       name="default"
+       title="FireBase PloneDemo portlet"
+       directory="profiles/default"
+       description="A simple portlet that displays static HTML"
+       provides="Products.GenericSetup.interfaces.EXTENSION"
+       />
+       
+     <permission
+       id="firebaseplonedemo.portlet.AddFireBasePloneDemoPortlet"
+       title="firebaseplonedemo: Add FireBasePloneDemo portlet"
+       />
+ 
+     <!-- Register the portlet -->
+     <plone:portlet
+         name="firebaseplonedemo.portlet.FireBasePloneDemo"
+         interface=".portlet.IFireBasePloneDemoPortlet"
+         assignment=".portlet.Assignment"
+         view_permission="zope2.View"
+         edit_permission="firebaseplonedemo.portlet.AddFireBasePloneDemoPortlet"
+         renderer=".portlet.Renderer"
+         addview=".portlet.AddForm"
+         editview=".portlet.EditForm"
+         />
+
+    <browser:resourceDirectory
+        name="firebaseplonedemo"
+        directory="static"
+        />
+
+    <browser:page
+        for="*"
+        class=".auth.AuthTokenView"
+        name="gen_auth_token"
+        permission="zope.Public"
+   />
+
+
+</configure>
+
+
