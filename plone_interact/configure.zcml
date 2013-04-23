@@ -10,31 +10,14 @@
     
     <genericsetup:registerProfile
        name="default"
-       title="FireBase PloneDemo portlet"
+       title="Plone Interact"
        directory="profiles/default"
-       description="A simple portlet that displays static HTML"
+       description="Viewlet provides a live notification UI"
        provides="Products.GenericSetup.interfaces.EXTENSION"
        />
-       
-     <permission
-       id="firebaseplonedemo.portlet.AddFireBasePloneDemoPortlet"
-       title="firebaseplonedemo: Add FireBasePloneDemo portlet"
-       />
- 
-     <!-- Register the portlet -->
-     <plone:portlet
-         name="firebaseplonedemo.portlet.FireBasePloneDemo"
-         interface=".portlet.IFireBasePloneDemoPortlet"
-         assignment=".portlet.Assignment"
-         view_permission="zope2.View"
-         edit_permission="firebaseplonedemo.portlet.AddFireBasePloneDemoPortlet"
-         renderer=".portlet.Renderer"
-         addview=".portlet.AddForm"
-         editview=".portlet.EditForm"
-         />
 
     <browser:resourceDirectory
-        name="firebaseplonedemo"
+        name="ploneinteract"
         directory="static"
         />
 
@@ -43,7 +26,18 @@
         class=".auth.AuthTokenView"
         name="gen_auth_token"
         permission="zope.Public"
-   />
+        />
+
+
+    <browser:viewlet
+      name="plone_interact.interact"
+      class=".viewlet.InteractViewlet"
+      manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+      template="viewlet.pt"
+      layer="*"
+      permission="zope2.View"
+      />
+
 
 
 </configure>
