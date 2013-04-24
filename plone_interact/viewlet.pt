@@ -1,28 +1,29 @@
 <div ng-app="chat">
-        <script src="../../components/angular/angular.js"
-            tal:attributes="src string:${context/++resource++ploneinteract}/dist/components/angular/angular.js"
-          ></script>
-        <div ng-controller="Chat">
-          <div>
-            <label for="">Your name: </label><input type="text" ng-model="username">
-          </div>
-          <p></p>
-          <div id="messagesDiv" class="messagesDiv" style="height:500px; overflow: auto;">
-            <div ng-cloak ng-repeat="message in messages">
-              <em>{{message.from}}: </em>{{message.content}}
-            </div>
-          </div>
-          <form ng-submit="addMessage()">
-            <input type="text" ng-model="message" placeholder="Message...">
-            <input type="submit" id="submit" value="Send" style="font-size:24px;">
-          </form>
-          <script src="https://cdn.firebase.com/v0/firebase.js"></script>
-          <script src="angularfire.js" 
-                  tal:attributes = "src context/++resource++ploneinteract/angularFire.js" 
-            ></script>
-          <meta name="firebaseplonedemo-auth-token" tal:attributes="content context/gen_auth_token">
-          <script src="app.js"
-                  tal:attributes = "src context/++resource++ploneinteract/app.js" 
-            ></script>
-        </div>
+  <script src="../../components/angular/angular.js"
+      tal:attributes="src string:${context/++resource++ploneinteract}/dist/components/angular/angular.js"
+    ></script>
+  <div ng-controller="Chat">
+    <div>
+      <label for="">Your name: </label><input type="text" ng-model="username">
+    </div>
+    <p></p>
+    <div id="messagesDiv" class="messagesDiv" style="height:500px; overflow: auto;">
+      <div ng-cloak ng-repeat="message in messages">
+        <em>{{message.from}}: </em>{{message.content}}
+      </div>
+    </div>
+    <form ng-submit="addMessage()">
+      <input type="text" ng-model="message" placeholder="Message...">
+      <input type="submit" id="submit" value="Send" style="font-size:24px;">
+    </form>
+    <script src="https://cdn.firebase.com/v0/firebase.js"></script>
+    <script src="angularfire.js" 
+            tal:attributes = "src context/++resource++ploneinteract/angularFire.js" 
+      ></script>
+    <meta name="plone-interact-auth-token" tal:attributes="content view/auth_token">
+    <meta name="plone-interact-firebase-url" tal:attributes="content view/config/firebase_url">
+    <script src="app.js"
+            tal:attributes = "src context/++resource++ploneinteract/app.js" 
+      ></script>
+  </div>
 </div>
