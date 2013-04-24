@@ -16,20 +16,26 @@
         <input type="text" ng-model="message" placeholder="Message...">
         <input type="submit" id="submit" value="Send" style="font-size:24px;">
       </form>
-      <script src="../../components/angular/angular.js"
-        tal:attributes="src string:${context/++resource++ploneinteract}/dist/components/angular/angular.js"
-        ></script>
-      <script src="https://cdn.firebase.com/v0/firebase.js"></script>
-      <script src="angularfire.js"
-        tal:attributes = "src context/++resource++ploneinteract/angularFire.js" 
-        ></script>
-      <script src="app.js"
-        tal:attributes = "src context/++resource++ploneinteract/app.js"
-        ></script>
-      <meta name="plone-interact-auth-token"
-        tal:attributes="content view/auth_token">
-      <meta name="plone-interact-firebase-url"
-        tal:attributes="content view/config/firebase_url">
+
     </div>
   </div>
 </div>
+<script type="text/javascript">
+  // Add me to the end of the body. Fixes z-index issue.
+  // Make sure this all takes place before angular starts to bind.
+  jQuery('#plone-interact-overlay').appendTo('body');
+</script>
+<script src="../../components/angular/angular.js"
+  tal:attributes="src string:${context/++resource++ploneinteract}/dist/components/angular/angular.js"
+  ></script>
+<script src="https://cdn.firebase.com/v0/firebase.js"></script>
+<script src="angularfire.js"
+  tal:attributes = "src context/++resource++ploneinteract/angularFire.js" 
+  ></script>
+<script src="app.js"
+  tal:attributes = "src context/++resource++ploneinteract/app.js"
+  ></script>
+<meta name="plone-interact-auth-token"
+  tal:attributes="content view/auth_token">
+<meta name="plone-interact-firebase-url"
+  tal:attributes="content view/config/firebase_url">

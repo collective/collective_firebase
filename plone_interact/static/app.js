@@ -2,6 +2,7 @@
 /* Copyright (c) 2013 Enfold Systems, Inc. All rights reserved. */
 
 
+
 jQuery(function ($) {
 
     $('#plone-interact-overlay').overlay({
