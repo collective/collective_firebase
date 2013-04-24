@@ -5,17 +5,23 @@
 
 jQuery(function ($) {
 
-    $('#plone-interact-overlay').overlay({
+    var $overlay = $('#plone-interact-overlay');
+
+    $overlay.overlay({
     });
 
-    $('#user-name').click(function (evt) {
-        $('#plone-interact-overlay').overlay().load();
-        return false;
-    });
+    window.showInteractOverlay = function() {
+        $overlay.overlay().load();
+    };
+
+    //$('#user-name').click(function (evt) {
+    //    showInteractOverlay();
+    //    return false;
+    //});
 
 
     $('.plone-interact-close').click(function (evt) {
-        $('#plone-interact-overlay').overlay().close();
+        $overlay.overlay().close();
         return false;
     });
 
@@ -56,6 +62,7 @@ controller('Chat', ['$scope', '$timeout', 'angularFireCollection',
                     $scope.message = "";
 
                     // prevent double click warning for this form
+                    // FIXME to only match inside us
                     jQuery('input[value="Send"]').removeClass('submitting');
 
                 };
