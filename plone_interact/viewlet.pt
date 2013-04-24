@@ -1,4 +1,4 @@
-<div>
+<div ng-app="chat">
         <script src="../../components/angular/angular.js"
             tal:attributes="src string:${context/++resource++ploneinteract}/dist/components/angular/angular.js"
           ></script>
