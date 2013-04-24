@@ -7,6 +7,12 @@ from zope.component import queryUtility
 from Products.CMFCore.interfaces import IPropertiesTool
 
 
+def get_properties():
+    ptool = queryUtility(IPropertiesTool)
+    if ptool is not None:
+        return getattr(ptool, 'interact_properties', None)
+
+
 def get_config():
     """Get the configuration
 
@@ -16,10 +22,7 @@ def get_config():
     PLONE_INTERACT_XXX environment variable is sourced.
 
     """
-    ptool = queryUtility(IPropertiesTool)
-    if ptool is None:
-        return None
-    props = getattr(ptool, 'interact_properties', None)
+    props = get_properties()
     if props is None:
         return None
     config = {}

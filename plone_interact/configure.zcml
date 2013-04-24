@@ -30,6 +30,14 @@
       permission="zope2.View"
       />
 
+    <browser:page
+        for="*"
+        class=".auth.AllowedUseridView"
+        name="plone_interact_allowed_userid"
+        permission="zope.Public"
+      />
+
+
 
 
 </configure>

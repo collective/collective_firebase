@@ -11,7 +11,7 @@
    <property name="description" i18n:translate=""></property>
    <property name="url_expr">string:javascript:showInteractOverlay();</property>
    <property name="icon_expr"></property>
-   <property name="available_expr"></property>
+   <property name="available_expr">context/@@plone_interact_allowed_userid</property>
    <property name="permissions">
     <element value="View"/>
    </property>
