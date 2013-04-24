@@ -16,20 +16,20 @@
         <input type="text" ng-model="message" placeholder="Message...">
         <input type="submit" id="submit" value="Send" style="font-size:24px;">
       </form>
-      <script src="../../components/angular/angular.js"
-          tal:attributes="src string:${context/++resource++ploneinteract}/dist/components/angular/angular.js"
+      <script src="../../components/angular/angular.js" defer
+        tal:attributes="src string:${context/++resource++ploneinteract}/dist/components/angular/angular.js"
         ></script>
-      <script src="https://cdn.firebase.com/v0/firebase.js"></script>
-      <script src="angularfire.js" 
-              tal:attributes = "src context/++resource++ploneinteract/angularFire.js" 
+      <script src="https://cdn.firebase.com/v0/firebase.js" defer></script>
+      <script src="angularfire.js" defer
+        tal:attributes = "src context/++resource++ploneinteract/angularFire.js" 
         ></script>
-
-
-      <meta name="plone-interact-auth-token" tal:attributes="content view/auth_token">
-      <meta name="plone-interact-firebase-url" tal:attributes="content view/config/firebase_url">
       <script src="app.js"
-              tal:attributes = "src context/++resource++ploneinteract/app.js" 
+        tal:attributes = "src context/++resource++ploneinteract/app.js" defer
         ></script>
+      <meta name="plone-interact-auth-token"
+        tal:attributes="content view/auth_token">
+      <meta name="plone-interact-firebase-url"
+        tal:attributes="content view/config/firebase_url">
     </div>
   </div>
 </div>
