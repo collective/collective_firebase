@@ -1,4 +1,6 @@
 
+# Copyright (c) 2013 Enfold Systems, Inc. All rights reserved.
+
 import os
 
 from zope.component import queryUtility

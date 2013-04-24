@@ -1,4 +1,26 @@
 
+/* Copyright (c) 2013 Enfold Systems, Inc. All rights reserved. */
+
+
+jQuery(function ($) {
+
+    $('#plone-interact-overlay').overlay({
+    });
+
+    $('#user-name').click(function (evt) {
+        $('#plone-interact-overlay').overlay().load();
+        return false;
+    });
+
+
+    $('.plone-interact-close').click(function (evt) {
+        $('#plone-interact-overlay').overlay().close();
+        return false;
+    });
+
+});
+
+0
 angular.module('chat', ['firebase']).
 controller('Chat', ['$scope', '$timeout', 'angularFireCollection',
     function($scope, $timeout, angularFireCollection) {
@@ -11,7 +33,7 @@ controller('Chat', ['$scope', '$timeout', 'angularFireCollection',
 
         dataRef.auth(authToken, function(error, result) {
             if(error) {
-                console.log("Login Failed!", error);
+                throw new Error("Login Failed! \n" + error);
             } else {
                 var auth = result.auth;
                 ploneUsername = auth.ploneUsername;

@@ -1,5 +1,5 @@
 
-import urllib
+# Copyright (c) 2013 Enfold Systems, Inc. All rights reserved.
 
 from plone.app.layout.viewlets import common as base
 

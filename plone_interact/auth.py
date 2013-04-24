@@ -1,4 +1,6 @@
 
+# Copyright (c) 2013 Enfold Systems, Inc. All rights reserved.
+
 from firebase_token_generator import create_token
 from zope.component import getMultiAdapter
 from .config import get_config

@@ -24,7 +24,7 @@
     <browser:viewlet
       name="plone_interact.interact"
       class=".viewlet.InteractViewlet"
-      manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+      manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
       template="viewlet.pt"
       layer="*"
       permission="zope2.View"
