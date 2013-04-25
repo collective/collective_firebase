@@ -10,6 +10,7 @@ jQuery(function ($) {
     $overlay.overlay({
     });
 
+    // global helper function to show the overlay
     window.showInteractOverlay = function() {
         $overlay.overlay().load();
     };
@@ -19,23 +20,23 @@ jQuery(function ($) {
     //    return false;
     //});
 
-
-    $('.plone-interact-close').click(function (evt) {
+    $overlay.find('.plone-interact-close').click(function (evt) {
         $overlay.overlay().close();
         return false;
     });
 
 });
 
-0
-angular.module('chat', ['firebase']).
-controller('Chat', ['$scope', '$timeout', 'angularFireCollection',
+var app = angular.module('task', ['firebase']);
+
+app.controller('Task', ['$scope', '$timeout', 'angularFireCollection',
     function($scope, $timeout, angularFireCollection) {
 
         var url = jQuery('meta[name="plone-interact-firebase-url"]').attr('content');
         var authToken = jQuery('meta[name="plone-interact-auth-token"]').attr('content');
 
         // Log me in.
+        // Each user logs in to /users/<username>/tasks.
         var dataRef = new Firebase(url);
 
         dataRef.auth(authToken, function(error, result) {
@@ -43,27 +44,36 @@ controller('Chat', ['$scope', '$timeout', 'angularFireCollection',
                 throw new Error("Login Failed! \n" + error);
             } else {
                 var auth = result.auth;
-                ploneUsername = auth.ploneUsername;
-                if (ploneUsername == 'Anonymous') {
+
+                if (auth.ploneUsername == 'Anonymous') {
                     $scope.username = 'Anonymous' + Math.floor(Math.random()*101);
                 } else {
-                    $scope.username = ploneUsername;
+                    $scope.username = auth.ploneUsername;
                 }
 
+                var homeUrl = url + auth.userPrefix + '/tasks';
+
                 var el = document.getElementById("messagesDiv");
-                $scope.messages = angularFireCollection(url, function() {
-                    $timeout(function() { el.scrollTop = el.scrollHeight; });
+                $scope.messages = angularFireCollection(homeUrl, function() {
+                    $timeout(function () {
+                        el.scrollTop = el.scrollHeight;
+                    });
                 });
 
                 $scope.addMessage = function() {
-                    $scope.messages.add({from: $scope.username, content: $scope.message}, function() {
-                        el.scrollTop = el.scrollHeight;
+                    var nextId = $scope.messages.length;
+                    $scope.messages.add({
+                        id: nextId,
+                        from: $scope.username,
+                        content: $scope.message
+                    }, function() {
+                        el.scrollTop = 0;
                     });
                     $scope.message = "";
 
                     // prevent double click warning for this form
                     // FIXME to only match inside us
-                    jQuery('input[value="Send"]').removeClass('submitting');
+                    jQuery('#plone-interact-overlay input').removeClass('submitting');
 
                 };
             }

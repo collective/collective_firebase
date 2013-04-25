@@ -25,6 +25,7 @@ def get_allowed_userid(context, request):
     else:
         return plone_userid
 
+
 def get_auth_token(context, request):
     plone_userid = get_allowed_userid(context, request)
 
@@ -43,8 +44,11 @@ def get_auth_token(context, request):
     custom_data = {
         'ploneUserid': plone_userid,
         'ploneUsername': plone_username,
+        'userPrefix': None if plone_userid is None else '/users/%s' % (plone_userid, ),
     }
-    options = {'admin': admin}
+    options = {
+        'admin': admin,
+    }
     config = get_config()
     token = create_token(config['firebase_secret'], custom_data, options)
     return token

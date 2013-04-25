@@ -1,15 +1,17 @@
 <tal:condition tal:condition="view/auth_token">
-  <div id="plone-interact-overlay" ng-app="chat" class="overlay overlay-ajax">
+  <div id="plone-interact-overlay" ng-app="task" class="overlay overlay-ajax">
     <div class="close plone-interact-close"></div>
     <div class="pb-ajax">
-      <div ng-controller="Chat">
-        <div>
-          <label for="">Your name: </label><input type="text" ng-model="username">
-        </div>
+      <div ng-controller="Task">
+        <form ng-submit="addMessage()">
+          <input type="submit" id="submit" value="Add Task">
+          <input type="text" ng-model="message" placeholder="Enter task description...">
+        </form>
         <p></p>
         <div id="messagesDiv" class="messagesDiv" style="height:500px; overflow: auto;">
-          <div ng-cloak ng-repeat="message in messages">
+          <div ng-cloak ng-repeat="message in messages | orderBy:'id':true">
             <em>{{message.from}}: </em>{{message.content}}
+            <a href="#">Done</a>
           </div>
         </div>
         <form ng-submit="addMessage()">
