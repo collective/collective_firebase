@@ -3,7 +3,7 @@
     <div class="close plone-interact-close"></div>
     <div class="pb-ajax">
       <div ng-controller="Task">
-        <form ng-submit="addMessage()">
+        <form ng-submit="addTask()">
           <input type="submit" id="submit" value="Add Task">
           <input type="text" ng-model="message" placeholder="Enter task description...">
         </form>
@@ -11,13 +11,9 @@
         <div id="messagesDiv" class="messagesDiv" style="height:500px; overflow: auto;">
           <div ng-cloak ng-repeat="message in messages | orderBy:'id':true">
             <em>{{message.from}}: </em>{{message.content}}
-            <a href="#">Done</a>
+            <a href="#" ng-click="removeTask(object)">Done</a>
           </div>
         </div>
-        <form ng-submit="addMessage()">
-          <input type="text" ng-model="message" placeholder="Message...">
-          <input type="submit" id="submit" value="Send" style="font-size:24px;">
-        </form>
       </div>
     </div>
   </div>

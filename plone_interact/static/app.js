@@ -60,7 +60,7 @@ app.controller('Task', ['$scope', '$timeout', 'angularFireCollection',
                     });
                 });
 
-                $scope.addMessage = function() {
+                $scope.addTask = function() {
                     var nextId = $scope.messages.length;
                     $scope.messages.add({
                         id: nextId,
@@ -76,9 +76,13 @@ app.controller('Task', ['$scope', '$timeout', 'angularFireCollection',
                     jQuery('#plone-interact-overlay input').removeClass('submitting');
 
                 };
+
+                $scope.removeTask = function (task) {
+                    $scope.messages.splice($scope.messages.indexOf(task), 1);
+                };
+
             }
         });
-
 
     }
 ]);
