@@ -61,9 +61,7 @@ app.controller('Task', ['$scope', '$timeout', 'angularFireCollection',
                 });
 
                 $scope.addTask = function() {
-                    var nextId = $scope.messages.length;
                     $scope.messages.add({
-                        id: nextId,
                         from: $scope.username,
                         content: $scope.message
                     }, function() {
@@ -78,7 +76,7 @@ app.controller('Task', ['$scope', '$timeout', 'angularFireCollection',
                 };
 
                 $scope.removeTask = function (task) {
-                    $scope.messages.splice($scope.messages.indexOf(task), 1);
+                    $scope.messages.remove(task);
                 };
 
             }
