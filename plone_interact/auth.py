@@ -5,7 +5,28 @@ from firebase_token_generator import create_token
 from zope.component import getMultiAdapter
 from Products.Five import BrowserView
 
-from .config import get_config, get_properties
+from .config import (
+    get_config,
+    get_properties,
+    get_env_config,
+)
+
+
+def get_auth_token_for_admin():
+    """Create an auth token with full admin rights.
+
+    Used from privilegized console scripts.
+    This needs the url, and the secret from env variables.
+    """
+    config = get_env_config()
+    custom_data = {
+        'ploneUserid': 'admin',
+    }
+    options = {
+        'admin': True,
+    }
+    token = create_token(config['firebase_secret'], custom_data, options)
+    return token
 
 
 def get_allowed_userid(context, request):
@@ -33,17 +54,11 @@ def get_auth_token(context, request):
         # If the user is not allowed, return a void token.
         return ''
 
-    if plone_userid is None:
-        plone_username = 'Anonymous'
-    else:
-        plone_username = plone_userid
-
     # Admin is always false for now.
     admin = False
 
     custom_data = {
         'ploneUserid': plone_userid,
-        'ploneUsername': plone_username,
         'userPrefix': None if plone_userid is None else '/users/%s' % (plone_userid, ),
     }
     options = {

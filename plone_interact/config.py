@@ -13,6 +13,17 @@ def get_properties():
         return getattr(ptool, 'interact_properties', None)
 
 
+def get_env_config():
+    """Get the configuration
+
+    Data comes from the PLONE_INTERACT_XXX environment variables.
+    """
+    return {
+        'firebase_url': os.getenv('PLONE_INTERACT_FIREBASE_URL', ''),
+        'firebase_secret': os.getenv('PLONE_INTERACT_FIREBASE_SECRET', ''),
+    }
+
+
 def get_config():
     """Get the configuration
 
@@ -25,9 +36,11 @@ def get_config():
     props = get_properties()
     if props is None:
         return None
-    config = {}
-    config['firebase_url'] = props.getProperty('firebase_url', '') or \
-        os.getenv('PLONE_INTERACT_FIREBASE_URL', '')
-    config['firebase_secret'] = props.getProperty('firebase_secret', '') or \
-        os.getenv('PLONE_INTERACT_FIREBASE_SECRET', '')
+    config = {
+        'firebase_url': props.getProperty('firebase_url', ''),
+        'firebase_secret': props.getProperty('firebase_secret', ''),
+    }
+    for key, value in get_env_config().iteritems():
+        if not config[key]:
+            config[key] = value
     return config

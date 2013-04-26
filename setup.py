@@ -47,9 +47,16 @@ setup(name='plone_interact',
           'zope.schema',
           'Zope2',
           'firebase_token_generator',
+          'python-firebase',
+      ],
+      dependency_links=[
       ],
       entry_points="""
+
       [z3c.autoinclude.plugin]
       target = plone
+
+      [console_scripts]
+      notify_user = plone_interact.scripts.notify_user:main
       """,
       )

@@ -43,15 +43,10 @@ app.controller('Task', ['$scope', '$timeout', 'angularFireCollection',
             if(error) {
                 throw new Error("Login Failed! \n" + error);
             } else {
+
                 var auth = result.auth;
-
-                if (auth.ploneUsername == 'Anonymous') {
-                    $scope.username = 'Anonymous' + Math.floor(Math.random()*101);
-                } else {
-                    $scope.username = auth.ploneUsername;
-                }
-
                 var homeUrl = url + auth.userPrefix + '/tasks';
+                $scope.username = auth.ploneUserid;
 
                 var el = document.getElementById("messagesDiv");
                 $scope.messages = angularFireCollection(homeUrl, function() {
