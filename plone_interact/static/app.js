@@ -71,7 +71,12 @@ app.controller('Task', ['$scope', '$timeout', 'angularFireCollection',
                 };
 
                 $scope.removeTask = function (task) {
-                    $scope.messages.remove(task);
+                    // Should work, but sometimes it does not update the view
+                    // upon deleting the last element.
+                    // Falling back to splice.
+                    //$scope.messages.remove(task);
+                    //
+                    $scope.messages.splice($scope.messages.indexOf(task), 1);
                 };
 
             }
