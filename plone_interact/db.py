@@ -4,6 +4,7 @@ from firebase import Firebase
 from .config import get_env_config
 from .auth import get_auth_token_for_admin
 
+
 def add_message(plone_userid, text):
     """Add a message to a user, with effective admin rights.
     """

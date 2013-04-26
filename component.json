@@ -2,6 +2,6 @@
     "name": "plone_interact-resources",
     "version": "0.1.0",
     "dependencies": {
-        "angular": "*"
+        "angular": "~1.0.5"
     }
 }

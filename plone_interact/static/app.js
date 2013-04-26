@@ -58,25 +58,21 @@ app.controller('Task', ['$scope', '$timeout', 'angularFireCollection',
                 $scope.addTask = function() {
                     $scope.messages.add({
                         from: $scope.username,
-                        content: $scope.message
+                        content: $scope.message,
+                        reason: 'Manually added',
+                        ts: new Date()
                     }, function() {
                         el.scrollTop = 0;
                     });
                     $scope.message = "";
 
                     // prevent double click warning for this form
-                    // FIXME to only match inside us
                     jQuery('#plone-interact-overlay input').removeClass('submitting');
 
                 };
 
                 $scope.removeTask = function (task) {
-                    // Should work, but sometimes it does not update the view
-                    // upon deleting the last element.
-                    // Falling back to splice.
-                    //$scope.messages.remove(task);
-                    //
-                    $scope.messages.splice($scope.messages.indexOf(task), 1);
+                    $scope.messages.remove(task);
                 };
 
             }
