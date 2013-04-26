@@ -9,7 +9,7 @@ Problems solved initially:
 
   + need to add ++resource++angular.js to RR profile. @cancelled (13-04-15 11:54) @done (13-04-22 16:19)
 
-  + the production of ++resource++angular.js needs a Gruntfile.js. @done (13-04-15 12:40)
+  + the production of ++resource++angular.js needs a Gruntfile.js. @done (13-04-15 12:40) 
 
   + cancel-submit button. @done (13-04-22 16:17)
 
