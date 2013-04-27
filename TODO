@@ -1,7 +1,7 @@
 
 plone_interact general issues:
 
-
+  - handle linebreaks entered in the textbox, correctly.
 
 Problems solved initially:
 
@@ -18,8 +18,9 @@ Problems solved initially:
 
 Future:
 
-  - angular-firebase is a newer version, so we have to include angularFire.js. Find the bower package so we don't need this!
+  + angular-firebase is a newer version, so we have to include angularFire.js. Find the bower package so we don't need this! @cancelled (13-04-27 11:33) - there is currently no bower package, because firebase.js also comes from the CDN. @done (13-04-27 11:33)
 
   - Find also a firebase.js instead of the one that currently comes from CDN.
+
 
 
