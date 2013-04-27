@@ -7,7 +7,9 @@ from ..db import add_message
 def main(argv=sys.argv):
     args = argv[1:]
     if not 2 <= len(args) <= 3:
-        raise RuntimeError('Wrong parameters.\n\n'
+        raise RuntimeError(
+            'Wrong parameters.\n'
+            '\n'
             'Usage: notify_user <plone_userid> <text>\n'
             '       notify_user <plone_userid> <text> <reason>\n')
     plone_userid, text, reason = (args + [None])[:3]

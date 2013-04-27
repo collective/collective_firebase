@@ -48,7 +48,7 @@ app.controller('Task', ['$scope', '$timeout', 'angularFireCollection',
                 var homeUrl = url + auth.userPrefix + '/tasks';
                 $scope.username = auth.ploneUserid;
 
-                var el = document.getElementById("messagesDiv");
+                var el = document.getElementById("noti-messages");
                 $scope.messages = angularFireCollection(homeUrl, function() {
                     $timeout(function () {
                         el.scrollTop = el.scrollHeight;
@@ -73,6 +73,10 @@ app.controller('Task', ['$scope', '$timeout', 'angularFireCollection',
 
                 $scope.removeTask = function (task) {
                     $scope.messages.remove(task);
+                };
+
+                $scope.isMine = function (task) {
+                    return task.from == $scope.username;
                 };
 
             }
