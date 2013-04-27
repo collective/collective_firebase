@@ -98,10 +98,14 @@ form.noti-box-mine:after {
 }
 .noti-leftlabel-main {
     padding: 0.5em;
+
 }
 .noti-middlelabel {
     margin-left: 8em;
     padding-left: 0.5em;
+}
+.noti-mainmsg {
+    font-weight: bold;
 }
 
 .noti-box-mine {
