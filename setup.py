@@ -49,6 +49,8 @@ setup(name='plone_interact',
           'python-firebase',
       ],
       dependency_links=[
+          # Needs github master at the moment, because pypi egg is borken with README.md not found.
+          'http://github.com/reebalazs/firebase-token-generator-python/tarball/master#egg=firebase_token_generator-1.3',
       ],
       entry_points="""
 
