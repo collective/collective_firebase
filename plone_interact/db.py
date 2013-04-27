@@ -1,4 +1,6 @@
 
+import time
+
 from firebase import Firebase
 
 from .config import get_env_config
@@ -15,5 +17,6 @@ def add_message(plone_userid, text):
     response = tasks.push({
         'from': 'admin',
         'content': text,
+        'ts': time.time() * 1000,
     })()
     return response
