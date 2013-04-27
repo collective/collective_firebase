@@ -14,18 +14,38 @@
           <div ng-cloak ng-repeat="task in messages | orderBy:'$index':true"
                ng-switch="isMine(task)">
             <div animate class="noti-box-mine" ng-switch-when="true">
-              <div>
-                <em>{{task.ts | date:dateFormat }} </em>{{task.content}}
+              <div class="noti-leftlabel">
+                <div class="noti-leftlabel-in"></div>
+                <div class="noti-leftlabel-main">
+                  <em>{{task.ts | date:dateFormat}}</em>
+                </div>
+              </div>
+              <div class="noti-middlelabel">
+                {{task.content}}
                 <a href="#" remove="removeTask(task)" class="noti-box-done">&nbsp;</a>
               </div>
             </div>
             <div animate class="noti-box-foreign" ng-switch-default>
-              <div>
-                <em>{{task.ts | date:dateFormat }} {{task.from}}: </em>{{task.content}}
-                <a href="#" remove="removeTask(task)" class="noti-box-done">&nbsp;</a>
+              <div class="noti-leftlabel">
+                <div class="noti-leftlabel-in"></div>
+                <div class="noti-leftlabel-main">
+                  <div>
+                    <em>From: {{task.from}}</em>
+                  </div>
+                  <div>
+                    <em>{{task.ts | date:dateFormat}}</em>
+                  </div>
+                </div>
               </div>
-              <div>
-                {{task.reason}}
+              <div class="noti-middlelabel">
+                <div>
+                  {{task.content}}
+                  <a href="#" remove="removeTask(task)" class="noti-box-done">&nbsp;</a>
+                </div>
+                <div>
+                  <i>{{task.reason}}</i>
+                </div>
+
               </div>
             </div>
           </div>
