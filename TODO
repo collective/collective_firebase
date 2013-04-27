@@ -3,6 +3,8 @@ plone_interact general issues:
 
   - handle linebreaks entered in the textbox, correctly.
 
+  + Error: Firebase.push failed: first argument contains undefined in property 'content' @done (13-04-27 12:13)
+
 Problems solved initially:
 
   + angular-firebase is a newer version, so we have to include angularFire.js. @done (13-04-15 12:45)

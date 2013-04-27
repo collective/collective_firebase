@@ -58,7 +58,7 @@ app.controller('Task', ['$scope', '$timeout', 'angularFireCollection',
                 $scope.addTask = function() {
                     $scope.messages.add({
                         from: $scope.username,
-                        content: $scope.message,
+                        content: $scope.message || '',
                         reason: 'Manually added',
                         ts: new Date().getTime()
                     }, function() {
@@ -84,3 +84,28 @@ app.controller('Task', ['$scope', '$timeout', 'angularFireCollection',
 
     }
 ]);
+
+
+app.directive('animate', function(){
+    return function(scope, elm, attrs) {
+        setTimeout(function() {
+            console.log('show');
+            elm.addClass('noti-box-show');
+        });
+    };
+});
+
+app.directive('remove', function(){
+    return function(scope, elm, attrs) {
+        elm.bind('click', function(e){
+            e.preventDefault();
+            var $parent = elm.closest('.noti-box-show');
+            $parent.removeClass('noti-box-show');
+            setTimeout(function(){
+                scope.$apply(function(){
+                    scope.$eval(attrs.remove);
+                });
+            }, 200);
+        });
+    };
+});
