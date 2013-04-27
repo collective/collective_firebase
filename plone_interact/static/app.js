@@ -60,7 +60,7 @@ app.controller('Task', ['$scope', '$timeout', 'angularFireCollection',
                         from: $scope.username,
                         content: $scope.message,
                         reason: 'Manually added',
-                        ts: new Date()
+                        ts: new Date().getTime()
                     }, function() {
                         el.scrollTop = 0;
                     });

@@ -10,7 +10,7 @@
         <p></p>
         <div id="messagesDiv" class="messagesDiv" style="height:500px; overflow: auto;">
           <div ng-cloak ng-repeat="task in messages | orderBy:'$index':true">
-            <em>{{task.from}}: </em>{{task.content}}
+            <em>{{task.ts | date:dateFormat }} {{task.from}}: </em>{{task.content}}
             <a href="#" ng-click="removeTask(task)">Done</a>
           </div>
         </div>
