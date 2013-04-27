@@ -5,6 +5,8 @@ plone_interact general issues:
 
   + Error: Firebase.push failed: first argument contains undefined in property 'content' @done (13-04-27 12:13)
 
+  - check for correct handling of the secret / auth token in the python script.
+
 Problems solved initially:
 
   + angular-firebase is a newer version, so we have to include angularFire.js. @done (13-04-15 12:45)
