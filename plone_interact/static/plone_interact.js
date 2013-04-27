@@ -89,7 +89,6 @@ app.controller('Task', ['$scope', '$timeout', 'angularFireCollection',
 app.directive('animate', function(){
     return function(scope, elm, attrs) {
         setTimeout(function() {
-            console.log('show');
             elm.addClass('noti-box-show');
         });
     };

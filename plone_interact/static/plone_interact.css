@@ -99,7 +99,6 @@ form.noti-box-mine:after {
     color: #333 !important;
     text-shadow: 0 1px 1px rgba(255, 255, 255, 0.16);
     -webkit-font-smoothing: antialiased;
-
 }
 
 .noti-box-foreign {
@@ -118,5 +117,4 @@ form.noti-box-mine:after {
     color: #333 !important;
     text-shadow: 0 1px 1px rgba(255, 255, 255, 0.16);
     -webkit-font-smoothing: antialiased;
-
 }

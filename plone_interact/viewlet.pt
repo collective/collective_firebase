@@ -19,10 +19,10 @@
                 <a href="#" remove="removeTask(task)" class="noti-box-done">&nbsp;</a>
               </div>
             </div>
-            <div class="noti-box-foreign" ng-switch-default>
+            <div animate class="noti-box-foreign" ng-switch-default>
               <div>
                 <em>{{task.ts | date:dateFormat }} {{task.from}}: </em>{{task.content}}
-                <a href="#" ng-click="removeTask(task)" class="noti-box-done">&nbsp;</a>
+                <a href="#" remove="removeTask(task)" class="noti-box-done">&nbsp;</a>
               </div>
               <div>
                 {{task.reason}}
