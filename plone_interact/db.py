@@ -20,7 +20,7 @@ def add_message(plone_userid, text, reason=None):
     tasks = Firebase(url, config['firebase_secret'])
     response = tasks.push({
         'from': 'admin',
-        'content': text,
+        'content': text.decode('string-escape'),
         'ts': time.time() * 1000,
         'reason': reason,
     })()

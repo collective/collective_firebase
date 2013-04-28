@@ -41,7 +41,8 @@
               </div>
               <div class="noti-middlelabel">
                 <div>
-                  <div class="noti-mainmsg">{{task.content}}</div>
+                  <div class="noti-mainmsg" 
+                  ng-bind-html-unsafe="task.content | newlines"></div>
                   <a href="#" remove="removeTask(task)" class="noti-box-done">&nbsp;</a>
                 </div>
                 <div>
