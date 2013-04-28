@@ -11,7 +11,8 @@ module.exports = function(grunt) {
         files: {
           'plone_interact/static/dist/': [
             collect.bower('angular').path('angular.js'),
-            collect.bower('angularFire').path('angularFire.js')
+            collect.bower('angularFire').path('angularFire.js'),
+            collect.bower('angular-elastic').path('elastic.js')
           ]
         }
       }
@@ -23,7 +24,8 @@ module.exports = function(grunt) {
       'default': {
         files: [
           collect.bower('angular').path('angular.js'),
-          collect.bower('angularFire').path('angularFire.js')
+          collect.bower('angularFire').path('angularFire.js'),
+          collect.bower('angular-elastic').path('elastic.js')
         ],
         tasks: ['copy:default']
       }

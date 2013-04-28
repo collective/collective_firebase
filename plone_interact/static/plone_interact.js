@@ -26,7 +26,7 @@ jQuery(function ($) {
 
 });
 
-var app = angular.module('task', ['firebase']);
+var app = angular.module('task', ['firebase', 'monospaced.elastic']);
 
 app.controller('Task', ['$scope', '$timeout', 'angularFireCollection',
     function($scope, $timeout, angularFireCollection) {
@@ -64,6 +64,12 @@ app.controller('Task', ['$scope', '$timeout', 'angularFireCollection',
                         el.scrollTop = 0;
                     });
                     $scope.message = "";
+                    // XXX probably a bug in elastic, but
+                    // this is also needed for elastic update of the textarea.
+                    // Without this it does not 'notice' that we cleared it.
+                    setTimeout(function () {
+                        jQuery(window).trigger('resize');
+                    }, 0);
 
                     // prevent double click warning for this form
                     jQuery('#plone-interact-overlay input').removeClass('submitting');

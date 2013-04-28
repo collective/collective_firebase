@@ -4,6 +4,8 @@
         expression="context/@@plone_interact_allowed_userid" />
     <javascript id="++resource++ploneinteract/dist/components/angularFire/angularFire.js"
         expression="context/@@plone_interact_allowed_userid" />
-     <javascript id="++resource++ploneinteract/plone_interact.js"
+    <javascript id="++resource++ploneinteract/dist/components/angular-elastic/elastic.js"
+        expression="context/@@plone_interact_allowed_userid" />
+    <javascript id="++resource++ploneinteract/plone_interact.js"
         expression="context/@@plone_interact_allowed_userid" />
 </object>
