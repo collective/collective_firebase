@@ -55,25 +55,7 @@
   </div>
   <script type="text/javascript">
     // Add me to the end of the body. Fixes z-index issue.
-    // Make sure this all takes place before angular starts to bind.
+    // Make sure this all takes place before angular starts to kick in.
     jQuery('#plone-interact-overlay').appendTo('body');
   </script>
-  <script src="../../components/angular/angular.js"
-    tal:attributes="src string:${context/++resource++ploneinteract}/dist/components/angular/angular.js"
-    ></script>
-  <script src="https://cdn.firebase.com/v0/firebase.js"></script>
-  <script src="angularfire.js"
-    tal:attributes = "src string:${context/++resource++ploneinteract}/dist/components/angularFire/angularFire.js" 
-    ></script>
-  <script src="plone_interact.js"
-    tal:attributes = "src context/++resource++ploneinteract/plone_interact.js"
-    ></script>
-  <link href="plone_interact.css" rel="stylesheet" type="text/css"
-    tal:attributes = "href context/++resource++ploneinteract/plone_interact.css"
-    />
-
-  <meta name="plone-interact-auth-token"
-    tal:attributes="content view/auth_token">
-  <meta name="plone-interact-firebase-url"
-    tal:attributes="content view/config/firebase_url">
 </tal:condition>

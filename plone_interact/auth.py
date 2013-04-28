@@ -54,12 +54,17 @@ def get_auth_token(context, request):
         # If the user is not allowed, return a void token.
         return ''
 
+    if plone_userid is None:
+        # If the user is anonymous (ot logged in), we do not 
+        # allow it either. Return a void token.
+        return ''
+
     # Admin is always false for now.
     admin = False
 
     custom_data = {
         'ploneUserid': plone_userid,
-        'userPrefix': None if plone_userid is None else '/users/%s' % (plone_userid, ),
+        'userPrefix': '/users/%s' % (plone_userid, ),
     }
     options = {
         'admin': admin,

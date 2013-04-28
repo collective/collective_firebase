@@ -1,0 +1,8 @@
+<tal:head tal:condition="view/auth_token">
+    <script src="https://cdn.firebase.com/v0/firebase.js"
+        type="text/javascript"></script>
+    <meta name="plone-interact-auth-token"
+        tal:attributes="content view/auth_token">
+    <meta name="plone-interact-firebase-url"
+        tal:attributes="content view/config/firebase_url">
+</tal:head>

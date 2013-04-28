@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<object name="portal_javascripts" meta_type="JavaScripts Registry">
+    <javascript id="++resource++ploneinteract/dist/components/angular/angular.js"
+        expression="context/@@plone_interact_allowed_userid" />
+    <javascript id="++resource++ploneinteract/dist/components/angularFire/angularFire.js"
+        expression="context/@@plone_interact_allowed_userid" />
+     <javascript id="++resource++ploneinteract/plone_interact.js"
+        expression="context/@@plone_interact_allowed_userid" />
+</object>
