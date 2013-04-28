@@ -1,8 +1,8 @@
 
 .noti-messages {
     max-height: 260px;
-    overflow:auto;
-    overflow-x:hidden;
+    overflow: auto;
+    overflow-x: hidden;
     margin-right: -8px;
     padding-right: 8px;
 }

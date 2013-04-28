@@ -63,7 +63,7 @@
     ></script>
   <script src="https://cdn.firebase.com/v0/firebase.js"></script>
   <script src="angularfire.js"
-    tal:attributes = "src context/++resource++ploneinteract/angularFire.js" 
+    tal:attributes = "src string:${context/++resource++ploneinteract}/dist/components/angularFire/angularFire.js" 
     ></script>
   <script src="plone_interact.js"
     tal:attributes = "src context/++resource++ploneinteract/plone_interact.js"
