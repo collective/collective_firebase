@@ -1,11 +1,8 @@
 
 plone_interact general issues:
 
-  - handle linebreaks entered in the textbox, correctly.
-
-  + Error: Firebase.push failed: first argument contains undefined in property 'content' @done (13-04-27 12:13)
-
   - check for correct handling of the secret / auth token in the python script.
+
 
 Problems solved initially:
 
@@ -19,12 +16,14 @@ Problems solved initially:
 
   + The gruntfile should rather be in the src package, but then an error occurs. @done (13-04-22 16:17) - I made the buildout and the egg to be a combined package.
 
+  + angular-firebase is a newer version, so we have to include angularFire.js. Find the bower package so we don't need this! @done (13-04-27 11:33)
+
+  + Error: Firebase.push failed: first argument contains undefined in property 'content' @done (13-04-27 12:13)
+
+  + handle linebreaks entered in the textbox, correctly. @done (13-04-28 13:06)
+
 
 Future:
 
-  + angular-firebase is a newer version, so we have to include angularFire.js. Find the bower package so we don't need this! @cancelled (13-04-27 11:33) - there is currently no bower package, because firebase.js also comes from the CDN. @done (13-04-27 11:33)
-
   - Find also a firebase.js instead of the one that currently comes from CDN.
-
-
 
