@@ -17,7 +17,7 @@ def add_message(plone_userid, text, reason=None):
     auth_token = get_auth_token_for_admin()
     config = get_env_config()
     url = '%s/users/%s/tasks' % (config['firebase_url'], plone_userid)
-    tasks = Firebase(url, config['firebase_secret'])
+    tasks = Firebase(url, auth_token=auth_token)
     response = tasks.push({
         'from': 'admin',
         'content': text.decode('string-escape'),
