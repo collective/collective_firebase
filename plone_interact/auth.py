@@ -55,7 +55,7 @@ def get_auth_token(context, request):
         return ''
 
     if plone_userid is None:
-        # If the user is anonymous (ot logged in), we do not 
+        # If the user is anonymous (ot logged in), we do not
         # allow it either. Return a void token.
         return ''
 
