@@ -4,7 +4,7 @@
 
 jQuery(function ($) {
 
-    var $overlay = $('#plone-interact-overlay');
+    var $overlay = $('#noti-overlay');
 
     $overlay.overlay({
     });
@@ -19,7 +19,7 @@ jQuery(function ($) {
     //    return false;
     //});
 
-    $overlay.find('.plone-interact-close').click(function (evt) {
+    $overlay.find('.noti-close').click(function (evt) {
         $overlay.overlay().close();
         return false;
     });

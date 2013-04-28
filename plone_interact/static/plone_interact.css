@@ -4,6 +4,7 @@
     overflow: auto;
     overflow-x: hidden;
     margin-right: -8px;
+    margin-top: 1em;
     padding-right: 8px;
 }
 
@@ -153,3 +154,13 @@ form.noti-box-mine:after {
     color: #222 !important;
     margin-right: 35px;
 }
+
+.noti-overlay-content {
+    padding: 1em;
+    background-color: #FFFFFF;
+    border: 1px solid #999999;
+    box-shadow: 0 0 3em 0.5em #666666;
+    white-space: normal;
+    overflow-y: auto;
+}
+

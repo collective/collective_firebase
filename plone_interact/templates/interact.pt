@@ -1,55 +1,52 @@
 <tal:condition tal:condition="view/auth_token">
-  <div id="plone-interact-overlay" ng-app="task" class="overlay overlay-ajax">
-    <div class="close plone-interact-close"></div>
-    <div class="pb-ajax">
-      <div ng-controller="Task">
-        <form class="noti-box-mine noti-box-show" ng-submit="addTask()">
-          <input type="submit" class="submit" value="Add Task">
-          <div class="noti-textarea-wrapper">
-            <textarea msd-elastic ng-model="message" 
-              placeholder="Enter task description..."></textarea>
+  <div id="noti-overlay" ng-app="task" class="overlay overlay-ajax">
+    <div class="close noti-close"></div>
+    <div class="noti-overlay-content" ng-controller="Task">
+      <form class="noti-box-mine noti-box-show" ng-submit="addTask()">
+        <input type="submit" class="submit" value="Add Task">
+        <div class="noti-textarea-wrapper">
+          <textarea msd-elastic ng-model="message" 
+            placeholder="Enter task description..."></textarea>
+        </div>
+      </form>
+      <div id="noti-messages" class="noti-messages">
+        <div ng-cloak ng-repeat="task in messages | orderBy:'$index':true"
+             ng-switch="isMine(task)">
+          <div animate class="noti-box-mine" ng-switch-when="true">
+            <div class="noti-leftlabel">
+              <div class="noti-leftlabel-in"></div>
+              <div class="noti-leftlabel-main">
+                <em>{{task.ts | date:dateFormat}}</em>
+              </div>
+            </div>
+            <div class="noti-middlelabel">
+              <div class="noti-mainmsg" 
+                ng-bind-html-unsafe="task.content | newlines"></div>
+              <a href="#" remove="removeTask(task)" class="noti-box-done">&nbsp;</a>
+            </div>
           </div>
-        </form>
-        <p></p>
-        <div id="noti-messages" class="noti-messages">
-          <div ng-cloak ng-repeat="task in messages | orderBy:'$index':true"
-               ng-switch="isMine(task)">
-            <div animate class="noti-box-mine" ng-switch-when="true">
-              <div class="noti-leftlabel">
-                <div class="noti-leftlabel-in"></div>
-                <div class="noti-leftlabel-main">
+          <div animate class="noti-box-foreign" ng-switch-default>
+            <div class="noti-leftlabel">
+              <div class="noti-leftlabel-in"></div>
+              <div class="noti-leftlabel-main">
+                <div>
+                  <em>From: {{task.from}}</em>
+                </div>
+                <div>
                   <em>{{task.ts | date:dateFormat}}</em>
                 </div>
               </div>
-              <div class="noti-middlelabel">
+            </div>
+            <div class="noti-middlelabel">
+              <div>
                 <div class="noti-mainmsg" 
-                  ng-bind-html-unsafe="task.content | newlines"></div>
+                ng-bind-html-unsafe="task.content | newlines"></div>
                 <a href="#" remove="removeTask(task)" class="noti-box-done">&nbsp;</a>
               </div>
-            </div>
-            <div animate class="noti-box-foreign" ng-switch-default>
-              <div class="noti-leftlabel">
-                <div class="noti-leftlabel-in"></div>
-                <div class="noti-leftlabel-main">
-                  <div>
-                    <em>From: {{task.from}}</em>
-                  </div>
-                  <div>
-                    <em>{{task.ts | date:dateFormat}}</em>
-                  </div>
-                </div>
+              <div>
+                <i>{{task.reason}}</i>
               </div>
-              <div class="noti-middlelabel">
-                <div>
-                  <div class="noti-mainmsg" 
-                  ng-bind-html-unsafe="task.content | newlines"></div>
-                  <a href="#" remove="removeTask(task)" class="noti-box-done">&nbsp;</a>
-                </div>
-                <div>
-                  <i>{{task.reason}}</i>
-                </div>
 
-              </div>
             </div>
           </div>
         </div>
@@ -59,6 +56,6 @@
   <script type="text/javascript">
     // Add me to the end of the body. Fixes z-index issue.
     // Make sure this all takes place before angular starts to kick in.
-    jQuery('#plone-interact-overlay').appendTo('body');
+    jQuery('#noti-overlay').appendTo('body');
   </script>
 </tal:condition>
