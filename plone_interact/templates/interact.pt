@@ -68,7 +68,7 @@
     var $username = $('#user-name');
     var cls = "noti-badge noti-badge-{{{true: 'visible', false: 'hidden'}[messages.length > 0]}}";
     $username.html($username.text() +
-      '<span ng-cloak class="' + cls + '">{{messages.length}}</span>');
+      '<span ng-cloak class="' + cls + '">{{messages.length}}<' + '/span>');
 
   </script>
 </tal:condition>
