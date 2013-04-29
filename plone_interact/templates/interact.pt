@@ -1,7 +1,7 @@
 <tal:condition tal:condition="view/auth_token">
-  <div id="noti-overlay" ng-app="task" class="overlay overlay-ajax">
+  <div id="noti-overlay" class="overlay overlay-ajax">
     <div class="close noti-close"></div>
-    <div class="noti-overlay-content" ng-controller="Task">
+    <div class="noti-overlay-content">
       <form class="noti-box-mine noti-box-show" ng-submit="addTask()">
         <input type="submit" class="submit" value="Add Task">
         <div class="noti-textarea-wrapper">
@@ -54,8 +54,20 @@
     </div>
   </div>
   <script type="text/javascript">
+    
     // Add me to the end of the body. Fixes z-index issue.
     // Make sure this all takes place before angular starts to kick in.
     jQuery('#noti-overlay').appendTo('body');
+    
+    // Also: add ng-app to body, as this will allow us to manipulate
+    // areas outside the overlay.
+    jQuery('body').attr('ng-app', 'task')
+      .attr('ng-controller', 'TaskController');
+
+    // Add notification badge to the username.
+    var $username = $('#user-name');
+    $username.html($username.text() +
+      "<span ng-cloak class=\"noti-badge noti-badge-{{{true: 'visible', false: 'hidden'}[messages.length > 0]}}\">{{messages.length}}</span>");
+
   </script>
 </tal:condition>

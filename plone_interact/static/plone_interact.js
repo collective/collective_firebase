@@ -14,10 +14,10 @@ jQuery(function ($) {
         $overlay.overlay().load();
     };
 
-    //$('#user-name').click(function (evt) {
-    //    showInteractOverlay();
-    //    return false;
-    //});
+    $('.noti-badge').click(function (evt) {
+        showInteractOverlay();
+        return false;
+    });
 
     $overlay.find('.noti-close').click(function (evt) {
         $overlay.overlay().close();
@@ -28,7 +28,7 @@ jQuery(function ($) {
 
 var app = angular.module('task', ['firebase', 'monospaced.elastic']);
 
-app.controller('Task', ['$scope', '$timeout', 'angularFireCollection',
+app.controller('TaskController', ['$scope', '$timeout', 'angularFireCollection',
     function($scope, $timeout, angularFireCollection) {
 
         var url = jQuery('meta[name="plone-interact-firebase-url"]').attr('content');

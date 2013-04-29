@@ -149,3 +149,31 @@ form.noti-box-mine:after {
     overflow-y: auto;
 }
 
+.noti-badge-hidden {
+    display: none;
+}
+
+.noti-badge-visible {
+    margin: 0 0.25em;
+    padding: 1px 9px 2px;
+    font-size: 12.025px;
+    font-weight: bold;
+    white-space: nowrap;
+    color: #e8e8e8;
+    background-color: #bd362f;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+    transition: all ease 0.2s;
+    -moz-transition: all ease 0.2s;
+    -webkit-transition: all ease 0.2s;
+    -o-transition: all ease 0.2s;
+}
+
+.noti-badge-visible:hover {
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+
+}
+
