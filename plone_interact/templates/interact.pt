@@ -66,8 +66,9 @@
 
     // Add notification badge to the username.
     var $username = $('#user-name');
+    var cls = "noti-badge noti-badge-{{{true: 'visible', false: 'hidden'}[messages.length > 0]}}";
     $username.html($username.text() +
-      "<span ng-cloak class=\"noti-badge noti-badge-{{{true: 'visible', false: 'hidden'}[messages.length > 0]}}\">{{messages.length}}</span>");
+      '<span ng-cloak class="' + cls + '">{{messages.length}}</span>');
 
   </script>
 </tal:condition>
