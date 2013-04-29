@@ -72,7 +72,7 @@ app.controller('TaskController', ['$scope', '$timeout', 'angularFireCollection',
                     }, 0);
 
                     // prevent double click warning for this form
-                    jQuery('#plone-interact-overlay input').removeClass('submitting');
+                    jQuery('#noti-overlay input').removeClass('submitting');
 
                 };
 
