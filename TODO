@@ -1,8 +1,9 @@
 
 plone_interact general issues:
 
-  - check for correct handling of the secret / auth token in the python script.
+  + check for correct handling of the secret / auth token in the python script. @done (13-04-29 14:20)
 
+  - fix animation for the inline editing of own issue.
 
 Problems solved initially:
 

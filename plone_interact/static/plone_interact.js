@@ -119,3 +119,24 @@ app.filter('newlines', function () {
         return text.replace(/\n/g, '<br/>');
     };
 });
+
+app.directive('contenteditable', function () {
+    return {
+        require: 'ngModel',
+        link: function (scope, elm, attrs, ctrl) {
+            // view -> model
+            elm.bind('blur', function () {
+                scope.$apply(function () {
+                    ctrl.$setViewValue(elm.html());
+                    // Need explicit apply. XXX This should be done differently.
+                    scope.messages.update(scope.task);
+                });
+            });
+
+            // model -> view
+            ctrl.$render = function () {
+                elm.html(ctrl.$viewValue);
+            };
+        }
+    };
+});
