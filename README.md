@@ -241,4 +241,4 @@ If you prefer to use the example buildout, you can do the same by the following 
     $ bin/buildout
     $ bin/grunt
 
-The buildout is simply a commodity to make sure that the steps are correctly automated. If youare familiar with `npm`, `bower` and `grunt`, you may want to just use them directly without the buildout, since it will lead to the same results.
+The buildout is simply a commodity to make sure that the steps are correctly automated. If you are familiar with `npm`, `bower` and `grunt`, you may want to just use them directly without the buildout, since it will lead to the same results.
