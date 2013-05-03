@@ -62,6 +62,7 @@ setup(name='plone_interact',
       target = plone
 
       [console_scripts]
-      notify_user = plone_interact.scripts.notify_user:main
+      interact_put = plone_interact.scripts.interact_put:main
+      interact_get = plone_interact.scripts.interact_get:main
       """,
       )

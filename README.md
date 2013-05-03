@@ -1,7 +1,7 @@
 
 # plone_interact #
 
-XXX
+A notification application to demostrate interactivity brought to Plone via the technologies of [AngularJS](http://angularjs.org) and [FireBase](http://firebase.com).
 
 
 ## Installation ##
@@ -10,9 +10,10 @@ The package can be installed in the same way as Plone packages are usually insta
 
 After the installation, the `plone_interact` package has to be installed from `Site Setup / Add Packages`.
 
+
 ### Buildout example ###
 
-There is an example buildout configuration in the package that can be used to install the package with the Plone 4.1 version. You can also use the buildout as a starting point for your own site setup. However, using the provided configuration is not required, the package can just be installed as an egg.
+There is an example buildout configuration in the package that can be alternately used to install the package with the Plone 4.1 version. You can also use the buildout as a starting point for your own site setup. However, using the provided configuration is not required, the package can just be installed as an egg.
 
 
 ## Setup ##
@@ -23,6 +24,14 @@ Additional setup steps are needed following the installation.
 ### Customizing Plone ###
 
 The package must be customized from the ZMI from the site_properties tool. Visit 'site_properties/interact_properties` from the ZMI and set the following properties:
+
+- **firebase_url:** The url of the firebase data.
+
+- **firebase_secret:** Your firebase secret.
+
+- **filter_users**: Enable/disable filtering of users who can access the service.
+
+- **allowed_users**: List users who can access the service (if `filter_users==True`)
 
 
 #### firebase_url
@@ -148,3 +157,33 @@ The notifications that are entered by the user are displayed in a different colo
 ## Using the example console scripts ##
 
 XXX
+
+## Development ##
+
+You only need to read this if you plan on authoring the third party JavaScript and CSS resources that this package is dependent on.
+
+All JS resources are defined as Plone javascript resources with Resource Registries.
+
+Except, `firebase.js` is coming from a CDN, because it seems that this is the supported way of using it, and there is no packaged release available.
+
+The external sources are not contained in this package. Installation of 3rd party packages is automated, and the production artifacts are placed in the `static/dist` directory. You only need any of the following if you want to regenerate this artifacts based on the original sources.
+
+To do the regeneration, you need to have `node` and `npm` installed on your computer. Following that you can perform the installation:
+
+    $ npm install .
+    $ bower install
+
+and after that you can regenerate the resources:
+
+    $ grunt
+
+or, start a watch to rebuild the resources if any of the sources changes:
+
+    $ grunt watch
+
+If you prefer to use the example buildout, you can do the same by the following commands, provided that you have a working `npm` installed:
+
+    $ bin/buildout
+    $ bin/grunt
+
+The buildout is simply a commodity to make sure that the steps are correctly automated. If youare familiar with `npm`, `bower` and `grunt`, you may want to just use them directly without the buildout, since it will lead to the same results.
