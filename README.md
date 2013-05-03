@@ -142,7 +142,7 @@ There is no need to create any data in Firebase as the data will be created on t
 
 ## Using the UI from Plone ##
 
-If the user who is logged in is allowed to use the service, a `Notification` menu appears in the user menu (upper right corner). Selecting `Notifications` will open a popup where the user can
+If the user who is logged in is allowed to use the service, a `Notifications` menu appears in the user menu (upper right corner). In addition, the number of notifications for the user is also displayed. Selecting `Notifications` will open a popup where the user can:
 
 - read her existing notifications
 
@@ -179,8 +179,8 @@ Example outputs:
     $ bin/interact_put user1 "A new message, now."
     Added.
 
-    $bin/interact_get user1
-    
+    $ bin/interact_get user1
+
     #1
     From: admin
     Date: 2013-05-03 15:03:35.815809
@@ -209,34 +209,8 @@ Example outputs:
     You got mail again! Now 2. Don't forget to read them!
 
 
-    #5
-    From: user1 (task to self)
-    Date: 2013-04-27 13:29:25.508000
-    Reason: Manually added
-    Another task, but it's not so important to do it. By not executing the task, we need to focus on keeping it in mind as long as possible. Some tasks have a natural lifecycle: they got forgotten in a casual way. Better so: they must have been not important in this case.
-
-
-    #6
-    From: admin
-    Date: 2013-04-27 13:18:46.362805
-    Reason: Added by privileged console script
-    You got mail!
-
-
-    #7
-    From: user1 (task to self)
-    Date: 2013-04-27 12:28:02.763000
-    Reason: Manually added
-    This is a very important task.
-
-
     Clear the tasks you have just read? (y/N)
-
-
-
-
-
-
+    4 messages deleted.
 
 
 ## Development ##
