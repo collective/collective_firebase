@@ -156,7 +156,88 @@ The notifications that are entered by the user are displayed in a different colo
 
 ## Using the example console scripts ##
 
-XXX
+The example control scripts are included for demonstration purposes. They duplicate a similar functionality as the UI does.
+
+A message can be sent to a Plone user:
+
+    $ bin/interact_put ploneuserid "Hi! Message to you!"
+
+The message is displayed to the user in a color that distinguishes the notification from the tasks that the user enters for herself
+
+Optionally a reason can be specified as a parameter. This is also displayed to the user on the UI. This demonstrates how arbitrary properties can be added to the message object.
+
+    $ bin/interact_put ploneuserid "Hi! Message to you!" "Sent by your favorite cron job."
+
+The following command lists the notifications for a given user. This results in a listing similar to what the user can see in the web UI.
+
+    $ bin/interact_get ploneuserid
+
+At the end of the listing, the script asks for the user whether to delete (acknowledge) the messages just displayed.
+
+Example outputs:
+
+    $ bin/interact_put user1 "A new message, now."
+    Added.
+
+    $bin/interact_get user1
+    
+    #1
+    From: admin
+    Date: 2013-05-03 15:03:35.815809
+    Reason: Added by privileged console script
+    A new message, now.
+
+
+    #2
+    From: user1 (task to self)
+    Date: 2013-05-03 04:30:36.683000
+    Reason: Manually added
+    We wanted to give the person a way to store notes.  or "tasks" in a MVC Shootout TODO kinda example way.
+
+
+    #3
+    From: user1 (task to self)
+    Date: 2013-05-02 21:29:26.465000
+    Reason: Manually added
+    I want tasks!
+
+
+    #4
+    From: admin
+    Date: 2013-04-27 18:43:38.128328
+    Reason: Added by privileged console script
+    You got mail again! Now 2. Don't forget to read them!
+
+
+    #5
+    From: user1 (task to self)
+    Date: 2013-04-27 13:29:25.508000
+    Reason: Manually added
+    Another task, but it's not so important to do it. By not executing the task, we need to focus on keeping it in mind as long as possible. Some tasks have a natural lifecycle: they got forgotten in a casual way. Better so: they must have been not important in this case.
+
+
+    #6
+    From: admin
+    Date: 2013-04-27 13:18:46.362805
+    Reason: Added by privileged console script
+    You got mail!
+
+
+    #7
+    From: user1 (task to self)
+    Date: 2013-04-27 12:28:02.763000
+    Reason: Manually added
+    This is a very important task.
+
+
+    Clear the tasks you have just read? (y/N)
+
+
+
+
+
+
+
 
 ## Development ##
 
