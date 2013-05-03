@@ -17,6 +17,14 @@ def get_tasks(plone_userid):
     return tasks
 
 
+def get_task(plone_userid, key):
+    auth_token = get_auth_token_for_admin()
+    config = get_env_config()
+    url = '%s/users/%s/tasks/%s' % (config['firebase_url'], plone_userid, key)
+    task = Firebase(url, auth_token=auth_token)
+    return task
+
+
 def add_message(plone_userid, text, reason=None):
     """Add a message to a user, with effective admin rights.
     """
@@ -44,5 +52,5 @@ def delete_messages(plone_userid, keys):
     """
     tasks = get_tasks(plone_userid)
     for key in keys:
-        #print tasks.child(key)
-        tasks.child(key).remove()
+        task = get_task(plone_userid, key)
+        task.remove()
