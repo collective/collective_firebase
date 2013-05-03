@@ -14,10 +14,10 @@ jQuery(function ($) {
         $overlay.overlay().load();
     };
 
-    $('.noti-badge').click(function (evt) {
-        showInteractOverlay();
-        return false;
-    });
+    //$('.noti-badge').click(function (evt) {
+    //    showInteractOverlay();
+    //    return false;
+    //});
 
     $overlay.find('.noti-close').click(function (evt) {
         $overlay.overlay().close();
