@@ -34,7 +34,7 @@ For example:
     https://my-firebase.firebaseio.com/plone_interact
 
 
-You can use the same firebase for more applications. You can specify an arbitrary path prefix to your database which at this point does not need to exist yet, but it is important that the url designates a path in the database that does not overlap with yor other applications:
+You can use the same firebase for more applications. You can specify an arbitrary path prefix to your database which at this point does not need to exist yet, but it is important that the url designates a path in the database that does not overlap with your other applications:
 
     https://my-firebase.firebaseio.com/COMPANY/PROJECT/SITE/plone_interact
 
@@ -129,3 +129,22 @@ If you do have a prefix in the url, then you must make up this structure to matc
 #### Data creation
 
 There is no need to create any data in Firebase as the data will be created on the first client write.
+
+
+## Using the UI from Plone ##
+
+If the user who is logged in is allowed to use the service, a `Notification` menu appears in the user menu (upper right corner). Selecting `Notifications` will open a popup where the user can
+
+- read her existing notifications
+
+- enter tasks (notifications) for herself
+
+- acknowledge (delete) the listed notifications.
+
+- Edit her own tasks (notifications) by simply clicking into it.
+
+The notifications that are entered by the user are displayed in a different color from the notifications sent by a console script.
+
+## Using the example console scripts ##
+
+XXX
