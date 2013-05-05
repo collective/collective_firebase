@@ -1,7 +1,7 @@
 
 # plone_interact #
 
-A notification application to demostrate interactivity brought to Plone via the technologies of [AngularJS](http://angularjs.org) and [FireBase](http://firebase.com).
+A notification application to demonstrate interactivity brought to Plone via the technologies of [AngularJS](http://angularjs.org) and [FireBase](http://firebase.com).
 
 
 ## Installation ##
@@ -23,7 +23,7 @@ Additional setup steps are needed following the installation.
 
 ### Customizing Plone ###
 
-The package must be customized from the ZMI from the site_properties tool. Visit 'site_properties/interact_properties` from the ZMI and set the following properties:
+The package must be customized from the ZMI from the site_properties tool. Visit `site_properties/interact_properties` from the ZMI and set the following properties:
 
 - **firebase_url:** The url of the firebase data.
 
