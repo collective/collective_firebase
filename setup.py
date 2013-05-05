@@ -45,13 +45,13 @@ setup(name='plone_interact',
           'zope.interface',
           'zope.schema',
           'Zope2',
-          'firebase_token_generator',
+          'firebase_token_generator>=1.4',
           'requests',
           'python-firebase==0.1.0',
       ],
       dependency_links=[
           # Needs github master at the moment, because pypi egg is borken with README.md not found.
-          'http://github.com/reebalazs/firebase-token-generator-python/tarball/master#egg=firebase_token_generator-1.3',
+          'http://github.com/reebalazs/firebase-token-generator-python/tarball/master#egg=firebase_token_generator-1.4',
           # It looks like this one has two spawns with the same name?
           # Make sure we use this one and not version 1.0 from pypi.
           'http://github.com/mikexstudios/python-firebase/tarball/master#egg=python-firebase-0.1.0',
