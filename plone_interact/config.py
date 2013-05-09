@@ -34,12 +34,16 @@ def get_config():
 
     """
     props = get_properties()
-    if props is None:
-        return None
-    config = {
-        'firebase_url': props.getProperty('firebase_url', ''),
-        'firebase_secret': props.getProperty('firebase_secret', ''),
-    }
+    if props is not None:
+        config = {
+            'firebase_url': props.getProperty('firebase_url', ''),
+            'firebase_secret': props.getProperty('firebase_secret', ''),
+        }
+    else:
+        config = {
+            'firebase_url': '',
+            'firebase_secret': '',
+        }
     for key, value in get_env_config().iteritems():
         if not config[key]:
             config[key] = value
