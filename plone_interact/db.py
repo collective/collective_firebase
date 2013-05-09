@@ -31,19 +31,24 @@ def add_message(plone_userid, text, reason=None):
     if reason is None:
         reason = DEFAULT_REASON
     tasks = get_tasks(plone_userid)
-    tasks.push({
+    response = tasks.push({
         'from': 'admin',
         'content': text.decode('string-escape'),
         'ts': time.time() * 1000,
         'reason': reason,
-    })()
-
+    })
+    if not isinstance(response, dict):
+        # Not on python2.6.
+        response = response()
 
 def get_messages(plone_userid):
     """Get all messages sent to a user, with effective admin rights.
     """
     tasks = get_tasks(plone_userid)
-    response = tasks.get()()
+    response = tasks.get()
+    if not isinstance(response, dict):
+        # Not on python2.6.
+        response = response()
     return response
 
 
