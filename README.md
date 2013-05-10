@@ -97,17 +97,18 @@ Since we are using custom authentication, you must add the domain or ip of the s
 
 On the same page, you can find the firebase authentication tokens and can add or revoke them as needed.
 
-#### Permissions tab
 
-I emphasize again, you MUST add this manually.
+#### Permissions tab
 
 The following permissions are suggested. This makes sure that each user can only access their own messages. In addition, there is a global admin access mode, which is used by the console scripts, meaning that the console scripts will always have full access to your *entire* database. The firebase permissions are very flexible, and coupled with custom authentication that generates the token in Plone, it could be further develop to satisfy virtually any use case.
 
-    {
-        "users": {
-            "$user": {
-                ".read":  "auth !== null && auth.ploneUserid == $user",
-                ".write": "auth !== null && auth.ploneUserid == $user"
+    {   
+        "rules": {
+            "users": {
+                "$user": {
+                    ".read":  "auth !== null && auth.ploneUserid == $user",
+                    ".write": "auth !== null && auth.ploneUserid == $user"
+                }
             }
         }
     }
@@ -117,20 +118,22 @@ This assumes that you have no prefix in your url, e.g. `https://my-firebase.fire
 If you do have a prefix in the url, then you must make up this structure to match up your prefix. For example if your url is `https://my-firebase.firebaseio.com/vipclients/omg/plone_interact`, then you can set the firebase in the following way. If you are using the firebase shared with multiple applications, then you may want to merge the ruleset with the other applications' rules as well.
 
     {
-        "vipclients": {
-            "omg": {
-                "plone_interact": {
-                    "users": {
-                        "$user": {
-                            ".read":  "auth !== null && auth.ploneUserid == $user",
-                            ".write": "auth !== null && auth.ploneUserid == $user"
+        "rules": {
+            "vipclients": {
+                "omg": {
+                    "plone_interact": {
+                        "users": {
+                            "$user": {
+                                ".read":  "auth !== null && auth.ploneUserid == $user",
+                                ".write": "auth !== null && auth.ploneUserid == $user"
+                            }
                         }
                     }
                 }
+            },
+            "other_apps": {
+                ... ... ...
             }
-        },
-        "other_apps": {
-            ... ... ...
         }
     }
 
