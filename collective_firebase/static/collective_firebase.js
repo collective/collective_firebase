@@ -10,12 +10,12 @@ jQuery(function ($) {
     });
 
     // global helper function to show the overlay
-    window.showInteractOverlay = function() {
+    window.showFirebaseOverlay = function() {
         $overlay.overlay().load();
     };
 
     //$('.noti-badge').click(function (evt) {
-    //    showInteractOverlay();
+    //    showFirebaseOverlay();
     //    return false;
     //});
 
@@ -31,8 +31,8 @@ var app = angular.module('task', ['firebase', 'monospaced.elastic']);
 app.controller('TaskController', ['$scope', '$timeout', 'angularFireCollection',
     function($scope, $timeout, angularFireCollection) {
 
-        var url = jQuery('meta[name="plone-interact-firebase-url"]').attr('content');
-        var authToken = jQuery('meta[name="plone-interact-auth-token"]').attr('content');
+        var url = jQuery('meta[name="plone-collective-firebase-url"]').attr('content');
+        var authToken = jQuery('meta[name="plone-collective-auth-token"]').attr('content');
 
         // Log me in.
         // Each user logs in to /users/<username>/tasks.

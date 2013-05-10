@@ -1,5 +1,5 @@
 {
-    "name": "plone_interact-resources",
+    "name": "collective_firebase-resources",
     "version": "0.1.0",
     "devDependencies": {
         "yo": "*",

@@ -8,7 +8,7 @@ def read(*rnames):
 
 version = '0.1.0'
 
-setup(name='plone_interact',
+setup(name='collective_firebase',
       version=version,
       description="",
       long_description=read('README.md'),
@@ -62,7 +62,7 @@ setup(name='plone_interact',
       target = plone
 
       [console_scripts]
-      interact_put = plone_interact.scripts.interact_put:main
-      interact_get = plone_interact.scripts.interact_get:main
+      firebase_put = collective_firebase.scripts.firebase_put:main
+      firebase_get = collective_firebase.scripts.firebase_get:main
       """,
       )

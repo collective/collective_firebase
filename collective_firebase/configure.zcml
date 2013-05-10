@@ -10,20 +10,20 @@
     
     <genericsetup:registerProfile
        name="default"
-       title="Plone Interact"
+       title="Plone Collective Firebase"
        directory="profiles/default"
        description="Viewlet provides a live notification UI"
        provides="Products.GenericSetup.interfaces.EXTENSION"
        />
 
     <browser:resourceDirectory
-        name="ploneinteract"
+        name="collectivefirebase"
         directory="static"
         />
 
     <browser:viewlet
-        name="plone_interact.head"
-        class=".viewlet.InteractViewlet"
+        name="collective_firebase.head"
+        class=".viewlet.FirebaseViewlet"
         manager="plone.app.layout.viewlets.interfaces.IHtmlHead"
         template="templates/head.pt"
         layer="*"
@@ -31,10 +31,10 @@
         />
 
     <browser:viewlet
-        name="plone_interact.interact"
-        class=".viewlet.InteractViewlet"
+        name="collective_firebase.firebase"
+        class=".viewlet.FirebaseViewlet"
         manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
-        template="templates/interact.pt"
+        template="templates/firebase.pt"
         layer="*"
         permission="zope2.View"
         />
@@ -42,7 +42,7 @@
     <browser:page
         for="*"
         class=".auth.AllowedUseridView"
-        name="plone_interact_allowed_userid"
+        name="collective_firebase_allowed_userid"
         permission="zope.Public"
       />
 

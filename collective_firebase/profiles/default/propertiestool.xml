@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <object name="portal_properties" meta_type="Plone Properties Tool">
- <object name="interact_properties" meta_type="Plone Property Sheet">
-  <property name="title">Plone Interact properties</property>
+ <object name="firebase_properties" meta_type="Plone Property Sheet">
+  <property name="title">Plone Collective Firebase properties</property>
   <property name="firebase_url" type="string"></property>
   <property name="firebase_secret" type="string"></property>
   <property name="filter_users" type="boolean">False</property>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <object>
     <order manager="plone.htmlhead" skinname="*">
-        <viewlet name="plone_interact.head" insert-before="*"/>
+        <viewlet name="collective_firebase.head" insert-before="*"/>
     </order>
 </object>

@@ -9,7 +9,7 @@ module.exports = function(grunt) {
     copy: {
       'default': {
         files: {
-          'plone_interact/static/dist/': [
+          'collective_firebase/static/dist/': [
             collect.bower('angular').path('angular.js'),
             collect.bower('angularFire').path('angularFire.js'),
             collect.bower('angular-elastic').path('elastic.js')
@@ -20,7 +20,7 @@ module.exports = function(grunt) {
     uglify: {
       'default': {
         files: {
-          'plone_interact/static/dist/angular.min.js': [
+          'collective_firebase/static/dist/angular.min.js': [
             collect.bower('angular').path('angular.js')
           ]
         }

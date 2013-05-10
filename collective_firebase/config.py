@@ -10,17 +10,17 @@ from Products.CMFCore.interfaces import IPropertiesTool
 def get_properties():
     ptool = queryUtility(IPropertiesTool)
     if ptool is not None:
-        return getattr(ptool, 'interact_properties', None)
+        return getattr(ptool, 'firebase_properties', None)
 
 
 def get_env_config():
     """Get the configuration
 
-    Data comes from the PLONE_INTERACT_XXX environment variables.
+    Data comes from the PLONE_COLLECTIVE_FIREBASE_XXX environment variables.
     """
     return {
-        'firebase_url': os.getenv('PLONE_INTERACT_FIREBASE_URL', ''),
-        'firebase_secret': os.getenv('PLONE_INTERACT_FIREBASE_SECRET', ''),
+        'firebase_url': os.getenv('PLONE_COLLECTIVE_FIREBASE_URL', ''),
+        'firebase_secret': os.getenv('PLONE_COLLECTIVE_FIREBASE_SECRET', ''),
     }
 
 
@@ -30,7 +30,7 @@ def get_config():
     Data comes from the plone site properties.
 
     If a given property is not found, then a
-    PLONE_INTERACT_XXX environment variable is sourced.
+    PLONE_COLLECTIVE_FIREBASE_XXX environment variable is sourced.
 
     """
     props = get_properties()

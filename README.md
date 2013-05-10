@@ -1,5 +1,5 @@
 
-# plone_interact #
+# collective_firebase #
 
 A notification application to demonstrate interactivity brought to Plone via the technologies of [AngularJS](http://angularjs.org) and [FireBase](http://firebase.com).
 
@@ -8,7 +8,7 @@ A notification application to demonstrate interactivity brought to Plone via the
 
 The package can be installed in the same way as Plone packages are usually installed.
 
-After the installation, the `plone_interact` package has to be installed from `Site Setup / Add Packages`.
+After the installation, the `collective_firebase` package has to be installed from `Site Setup / Add Packages`.
 
 
 ### Buildout example ###
@@ -23,7 +23,7 @@ Additional setup steps are needed following the installation.
 
 ### Customizing Plone ###
 
-The package must be customized from the ZMI from the site_properties tool. Visit `site_properties/interact_properties` from the ZMI and set the following properties:
+The package must be customized from the ZMI from the site_properties tool. Visit `site_properties/firebase_properties` from the ZMI and set the following properties:
 
 - **firebase_url:** The url of the firebase data.
 
@@ -40,14 +40,14 @@ The url of the firebase data.
 
 For example:
 
-    https://my-firebase.firebaseio.com/plone_interact
+    https://my-firebase.firebaseio.com/collective_firebase
 
 
 You can use the same firebase for more applications. You can specify an arbitrary path prefix to your database which at this point does not need to exist yet, but it is important that the url designates a path in the database that does not overlap with your other applications:
 
-    https://my-firebase.firebaseio.com/COMPANY/PROJECT/SITE/plone_interact
+    https://my-firebase.firebaseio.com/COMPANY/PROJECT/SITE/collective_firebase
 
-If this property is left empty, the value of the `PLONE_INTERACT_FIREBASE_URL` environment variable will be used as a default.
+If this property is left empty, the value of the `PLONE_COLLECTIVE_FIREBASE_URL` environment variable will be used as a default.
 
 
 #### firebase_secret
@@ -56,7 +56,7 @@ Your firebase secret as provided by the Firebase application (Forge).
 
 Keep the secret confidential, because if you give this secret to anyone, you grant full access to your entire database. If needed, you can generate more secrets, which gives you better control over them.
 
-If this property is left empty, the value of the `PLONE_INTERACT_FIREBASE_SECRET` environment variable will be used as a default.
+If this property is left empty, the value of the `PLONE_COLLECTIVE_FIREBASE_SECRET` environment variable will be used as a default.
 
 
 
@@ -74,8 +74,8 @@ If set to `False` (which is the default value), then the service is enabled for 
 
 As mentioned above, the `firebase_url` and `firebase_secret` properties can also be specified from environment variables:
 
-    % export PLONE_INTERACT_FIREBASE_SECRET='ZsAjg**********...'
-    % export PLONE_INTERACT_FIREBASE_URL='https://my-firebase.firebaseio.com/plone_interact'
+    % export PLONE_COLLECTIVE_FIREBASE_SECRET='ZsAjg**********...'
+    % export PLONE_COLLECTIVE_FIREBASE_URL='https://my-firebase.firebaseio.com/collective_firebase'
 
 If these values exist, they serve as a default value and the property fields in site_properties can be left empty. If the properties are also specified, they will take precedence over the environment variables.
 
@@ -121,7 +121,7 @@ If you do have a prefix in the url, then you must make up this structure to matc
         "rules": {
             "vipclients": {
                 "omg": {
-                    "plone_interact": {
+                    "collective_firebase": {
                         "users": {
                             "$user": {
                                 ".read":  "auth !== null && auth.ploneUserid == $user",
@@ -163,26 +163,26 @@ The example control scripts are included for demonstration purposes. They duplic
 
 A message can be sent to a Plone user:
 
-    $ bin/interact_put ploneuserid "Hi! Message to you!"
+    $ bin/firebase_put ploneuserid "Hi! Message to you!"
 
 The message is displayed to the user in a color that distinguishes the notification from the tasks that the user enters for herself
 
 Optionally a reason can be specified as a parameter. This is also displayed to the user on the UI. This demonstrates how arbitrary properties can be added to the message object.
 
-    $ bin/interact_put ploneuserid "Hi! Message to you!" "Sent by your favorite cron job."
+    $ bin/firebase_put ploneuserid "Hi! Message to you!" "Sent by your favorite cron job."
 
 The following command lists the notifications for a given user. This results in a listing similar to what the user can see in the web UI.
 
-    $ bin/interact_get ploneuserid
+    $ bin/firebase_get ploneuserid
 
 At the end of the listing, the script asks for the user whether to delete (acknowledge) the messages just displayed.
 
 Example outputs:
 
-    $ bin/interact_put user1 "A new message, now."
+    $ bin/firebase_put user1 "A new message, now."
     Added.
 
-    $ bin/interact_get user1
+    $ bin/firebase_get user1
 
     #1
     From: admin

@@ -10,8 +10,8 @@ def main(argv=sys.argv):
         raise RuntimeError(
             'Wrong parameters.\n'
             '\n'
-            'Usage: interact_put <plone_userid> <text>\n'
-            '       interact_put <plone_userid> <text> <reason>\n')
+            'Usage: firebase_put <plone_userid> <text>\n'
+            '       firebase_put <plone_userid> <text> <reason>\n')
     plone_userid, text, reason = (args + [None])[:3]
     response = add_message(plone_userid, text, reason)
     print "Added."

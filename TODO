@@ -1,5 +1,5 @@
 
-plone_interact general issues:
+collective_firebase general issues:
 
   + check for correct handling of the secret / auth token in the python script. @done (13-04-29 14:20)
 

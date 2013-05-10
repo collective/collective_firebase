@@ -14,7 +14,7 @@ def main(argv=sys.argv):
         raise RuntimeError(
             'Wrong parameters.\n'
             '\n'
-            'Usage: interact_get <plone_userid>\n')
+            'Usage: firebase_get <plone_userid>\n')
     plone_userid = args[0]
     response = get_messages(plone_userid)
     messages = [(key, value) for (key, value) in response.iteritems()]

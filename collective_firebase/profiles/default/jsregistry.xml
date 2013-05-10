@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<object name="portal_javascripts" meta_type="JavaScripts Registry">
+    <javascript id="++resource++collectivefirebase/dist/angular.min.js"
+        expression="context/@@collectice_firebase_allowed_userid" compression="none"/>
+    <javascript id="++resource++collectivefirebase/dist/components/angularFire/angularFire.js"
+        expression="context/@@collective_firebase_allowed_userid" />
+    <javascript id="++resource++collectivefirebase/dist/components/angular-elastic/elastic.js"
+        expression="context/@@collective_firebase_allowed_userid" />
+    <javascript id="++resource++collectivefirebase/collective_firebase.js"
+        expression="context/@@collective_firebase_allowed_userid" />
+</object>

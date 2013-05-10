@@ -8,12 +8,12 @@ from .config import get_config
 from .auth import get_auth_token
 
 
-class InteractViewlet(base.ViewletBase):
+class FirebaseViewlet(base.ViewletBase):
     """
     """
 
     def update(self):
-        super(InteractViewlet, self).update()
+        super(FirebaseViewlet, self).update()
         self.auth_token = get_auth_token(self.context, self.request)
         self.config = get_config()
         # Is the product installed?
@@ -23,10 +23,10 @@ class InteractViewlet(base.ViewletBase):
         # rendered before the product is installed with quickinstaller
         # in a newly created portal.
         qi = getToolByName(self.context, 'portal_quickinstaller')
-        self.is_installed = qi.isProductInstalled('plone_interact')
+        self.is_installed = qi.isProductInstalled('collective_firebase')
 
     def render(self):
         if self.is_installed and self.auth_token:
-            return super(InteractViewlet, self).render()
+            return super(FirebaseViewlet, self).render()
         else:
             return ''
