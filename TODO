@@ -5,6 +5,8 @@ collective_firebase general issues:
 
   - fix animation for the inline editing of own issue.
 
+  - provide config link in setup to point to portal_properties/firebase_properties/manage_workspace
+
 Problems solved initially:
 
   + angular-firebase is a newer version, so we have to include angularFire.js. @done (13-04-15 12:45)
